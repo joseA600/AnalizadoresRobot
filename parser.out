@@ -1,0 +1,201 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> inicio
+Rule 1     inicio -> instruccion
+Rule 2     inicio -> instruccion inicio
+Rule 3     instruccion -> declaracion_robot
+Rule 4     instruccion -> metodo_sin_parametro
+Rule 5     instruccion -> metodo_con_parametro
+Rule 6     declaracion_robot -> ROBOT ID
+Rule 7     metodo_sin_parametro -> ID PUNTO METODO
+Rule 8     metodo_sin_parametro -> ID PUNTO METODO PAREN_IZQ PAREN_DER
+Rule 9     metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER
+
+Terminals, with rules where they appear
+
+ID                   : 6 7 8 9
+METODO               : 7 8 9
+NUMERO               : 9
+PAREN_DER            : 8 9
+PAREN_IZQ            : 8 9
+PUNTO                : 7 8 9
+ROBOT                : 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+declaracion_robot    : 3
+inicio               : 2 0
+instruccion          : 1 2
+metodo_con_parametro : 5
+metodo_sin_parametro : 4
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . inicio
+    (1) inicio -> . instruccion
+    (2) inicio -> . instruccion inicio
+    (3) instruccion -> . declaracion_robot
+    (4) instruccion -> . metodo_sin_parametro
+    (5) instruccion -> . metodo_con_parametro
+    (6) declaracion_robot -> . ROBOT ID
+    (7) metodo_sin_parametro -> . ID PUNTO METODO
+    (8) metodo_sin_parametro -> . ID PUNTO METODO PAREN_IZQ PAREN_DER
+    (9) metodo_con_parametro -> . ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER
+
+    ROBOT           shift and go to state 6
+    ID              shift and go to state 7
+
+    inicio                         shift and go to state 1
+    instruccion                    shift and go to state 2
+    declaracion_robot              shift and go to state 3
+    metodo_sin_parametro           shift and go to state 4
+    metodo_con_parametro           shift and go to state 5
+
+state 1
+
+    (0) S' -> inicio .
+
+
+
+state 2
+
+    (1) inicio -> instruccion .
+    (2) inicio -> instruccion . inicio
+    (1) inicio -> . instruccion
+    (2) inicio -> . instruccion inicio
+    (3) instruccion -> . declaracion_robot
+    (4) instruccion -> . metodo_sin_parametro
+    (5) instruccion -> . metodo_con_parametro
+    (6) declaracion_robot -> . ROBOT ID
+    (7) metodo_sin_parametro -> . ID PUNTO METODO
+    (8) metodo_sin_parametro -> . ID PUNTO METODO PAREN_IZQ PAREN_DER
+    (9) metodo_con_parametro -> . ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER
+
+    $end            reduce using rule 1 (inicio -> instruccion .)
+    ROBOT           shift and go to state 6
+    ID              shift and go to state 7
+
+    instruccion                    shift and go to state 2
+    inicio                         shift and go to state 8
+    declaracion_robot              shift and go to state 3
+    metodo_sin_parametro           shift and go to state 4
+    metodo_con_parametro           shift and go to state 5
+
+state 3
+
+    (3) instruccion -> declaracion_robot .
+
+    ROBOT           reduce using rule 3 (instruccion -> declaracion_robot .)
+    ID              reduce using rule 3 (instruccion -> declaracion_robot .)
+    $end            reduce using rule 3 (instruccion -> declaracion_robot .)
+
+
+state 4
+
+    (4) instruccion -> metodo_sin_parametro .
+
+    ROBOT           reduce using rule 4 (instruccion -> metodo_sin_parametro .)
+    ID              reduce using rule 4 (instruccion -> metodo_sin_parametro .)
+    $end            reduce using rule 4 (instruccion -> metodo_sin_parametro .)
+
+
+state 5
+
+    (5) instruccion -> metodo_con_parametro .
+
+    ROBOT           reduce using rule 5 (instruccion -> metodo_con_parametro .)
+    ID              reduce using rule 5 (instruccion -> metodo_con_parametro .)
+    $end            reduce using rule 5 (instruccion -> metodo_con_parametro .)
+
+
+state 6
+
+    (6) declaracion_robot -> ROBOT . ID
+
+    ID              shift and go to state 9
+
+
+state 7
+
+    (7) metodo_sin_parametro -> ID . PUNTO METODO
+    (8) metodo_sin_parametro -> ID . PUNTO METODO PAREN_IZQ PAREN_DER
+    (9) metodo_con_parametro -> ID . PUNTO METODO PAREN_IZQ NUMERO PAREN_DER
+
+    PUNTO           shift and go to state 10
+
+
+state 8
+
+    (2) inicio -> instruccion inicio .
+
+    $end            reduce using rule 2 (inicio -> instruccion inicio .)
+
+
+state 9
+
+    (6) declaracion_robot -> ROBOT ID .
+
+    ROBOT           reduce using rule 6 (declaracion_robot -> ROBOT ID .)
+    ID              reduce using rule 6 (declaracion_robot -> ROBOT ID .)
+    $end            reduce using rule 6 (declaracion_robot -> ROBOT ID .)
+
+
+state 10
+
+    (7) metodo_sin_parametro -> ID PUNTO . METODO
+    (8) metodo_sin_parametro -> ID PUNTO . METODO PAREN_IZQ PAREN_DER
+    (9) metodo_con_parametro -> ID PUNTO . METODO PAREN_IZQ NUMERO PAREN_DER
+
+    METODO          shift and go to state 11
+
+
+state 11
+
+    (7) metodo_sin_parametro -> ID PUNTO METODO .
+    (8) metodo_sin_parametro -> ID PUNTO METODO . PAREN_IZQ PAREN_DER
+    (9) metodo_con_parametro -> ID PUNTO METODO . PAREN_IZQ NUMERO PAREN_DER
+
+    ROBOT           reduce using rule 7 (metodo_sin_parametro -> ID PUNTO METODO .)
+    ID              reduce using rule 7 (metodo_sin_parametro -> ID PUNTO METODO .)
+    $end            reduce using rule 7 (metodo_sin_parametro -> ID PUNTO METODO .)
+    PAREN_IZQ       shift and go to state 12
+
+
+state 12
+
+    (8) metodo_sin_parametro -> ID PUNTO METODO PAREN_IZQ . PAREN_DER
+    (9) metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ . NUMERO PAREN_DER
+
+    PAREN_DER       shift and go to state 13
+    NUMERO          shift and go to state 14
+
+
+state 13
+
+    (8) metodo_sin_parametro -> ID PUNTO METODO PAREN_IZQ PAREN_DER .
+
+    ROBOT           reduce using rule 8 (metodo_sin_parametro -> ID PUNTO METODO PAREN_IZQ PAREN_DER .)
+    ID              reduce using rule 8 (metodo_sin_parametro -> ID PUNTO METODO PAREN_IZQ PAREN_DER .)
+    $end            reduce using rule 8 (metodo_sin_parametro -> ID PUNTO METODO PAREN_IZQ PAREN_DER .)
+
+
+state 14
+
+    (9) metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ NUMERO . PAREN_DER
+
+    PAREN_DER       shift and go to state 15
+
+
+state 15
+
+    (9) metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER .
+
+    ROBOT           reduce using rule 9 (metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER .)
+    ID              reduce using rule 9 (metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER .)
+    $end            reduce using rule 9 (metodo_con_parametro -> ID PUNTO METODO PAREN_IZQ NUMERO PAREN_DER .)
+
