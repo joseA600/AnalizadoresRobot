@@ -3,12 +3,12 @@
 
 ¡Hola! 👋 Este proyecto lo hicimos en equipo con mi compañero Heber como parte de la materia de **Lenguajes y Autómatas**.  
 En este proyecto se trabajó con analizadores léxicos y sintácticos usando **Python** y la librería **PLY** (Lex & Yacc en Python).  
-Todos los analizadores tienen interfaz, así que no es solo consola. 😎
+Todos los analizadores tienen interfaz, así que no es solo consola. 
 
 ## 📁 Archivos del proyecto
 
 - `AnalizadorLexicoConComponentes.py`: Analizador léxico con interfaz gráfica y componentes extra para ver los tokens.
-- `analizadorlexicosinComponentes.py`: La versión básica del analizador léxico, sin interfaz.
+- `analizadorlexicosinComponentes.py`: La versión básica del analizador léxico.
 - `AnalizadorSintacticoconComponentes.py`: Analizador sintáctico con interfaz incluida. ¡Muy útil para ver el análisis paso a paso!
 - `AnalizadorSintacticosinComponentes.py`: Versión sencilla del analizador sintáctico.
 - `parsetab.py` y `parser.out`: Archivos generados automáticamente por PLY al compilar la gramática.
